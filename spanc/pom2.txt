@@ -1,17 +1,31 @@
-
-			<execution>
- 				<id>npm-install</id>
- 				<goals>
-					<goal>npm</goal>
-				</goals>
-			</execution>
-
-			<execution>
-				<id>npm-build</id>
-				<goals>
-					<goal>npm</goal>
-			 	</goals>
+			<plugin>
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<version>1.9.1</version>
 				<configuration>
-					<arguments>run-script build</arguments>
+					<nodeVersion>v13.14.0</nodeVersion>
 				</configuration>
-			</execution>
+				<executions>
+					<execution>
+						<id>install-npm</id>
+						<goals>
+							<goal>install-node-and-npm</goal>
+						</goals>
+					</execution>
+					<execution>
+ 						<id>npm-install</id>
+ 						<goals>
+							<goal>npm</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>npm-build</id>
+						<goals>
+							<goal>npm</goal>
+					 	</goals>
+						<configuration>
+							<arguments>run-script build</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
